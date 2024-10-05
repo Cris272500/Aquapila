@@ -27,4 +27,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     animarAgua(); // Inicia la animación
+
+
+    // Codigo cuando le de click al boton liberar agua
+    const formLiberar = document.querySelector("#register-form");
+    const btnLiberar = document.querySelector(".btnLiberar");
+
+    btnLiberar.addEventListener("click", () => {
+        event.preventDefault();
+
+        Swal.fire({
+            title: "¿Estás seguro de liberar agua?",
+            showDenyButton: true,
+            confirmButtonText: "Aceptar",
+            denyButtonText: `Cancelar`
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              Swal.fire("Agua liberada del tanque", "", "success").then(() => {
+                window.location.href = 'index.html';
+              });
+            } else if (result.isDenied) {
+              Swal.fire("Liberación de agua interrumpida", "", "error");
+            }
+          })
+        
+    });
+
 });
