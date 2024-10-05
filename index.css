@@ -1,0 +1,119 @@
+/* Fondo del navbar */
+.bg-background {
+    background-color: #f8f9fa;
+  }
+  
+  /* Colores de texto */
+  .text-primary {
+    color: #007bff;
+  }
+  
+  .text-muted-foreground {
+    color: #6c757d;
+  }
+  
+.centro {
+    text-align: center;
+}
+
+.main-contenedor {
+    margin-top: -100px;
+}
+
+  /* Enlace activo (página actual) */
+  .nav-link.active {
+    color: #4dbae7 !important; /* Verde indicando página activa */
+  }
+  
+  .nav-link:hover {
+    color: #007bff;
+  }
+  
+  /* Tamaño de imágenes */
+  .h-8 {
+    height: 32px;
+  }
+  
+  .w-8 {
+    width: 32px;
+  }
+  
+  /* Sombra en el navbar */
+  .shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Negritas */
+  .fw-bold {
+    font-weight: 700;
+  }
+  
+  /* Tamaño de fuente */
+  .fs-4 {
+    font-size: 1.5rem;
+  }
+  
+
+  body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+.text-gray-600 {
+    color: #4a4a4a;
+}
+
+.bg-blue-100 {
+    background-color: #ebf8ff;
+}
+
+.bg-blue-500 {
+    background-color: #4299e1;
+}
+
+/* Codigo de la botella de agua */
+.bottle-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.card {
+    margin-bottom: 10px; /* Ajusta el espacio entre tarjetas */
+}
+
+.row {
+    margin-left: 0; /* Elimina el margen a la izquierda de la fila */
+    margin-right: 0; /* Elimina el margen a la derecha de la fila */
+}
+
+.water {
+    animation: fill 4s linear infinite;
+}
+
+/* Animación de llenado */
+@keyframes fill {
+    0% {
+        height: 0; /* Comienza vacío */
+        y: 250; /* Posición inicial del agua */
+    }
+    50% {
+        height: 200; /* Llenar hasta la mitad */
+        y: 150; /* Posición del agua al llenarse */
+    }
+    100% {
+        height: 0; /* Vaciar la botella */
+        y: 250; /* Regresa a la posición inicial */
+    }
+}
