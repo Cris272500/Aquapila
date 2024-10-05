@@ -16,9 +16,7 @@
     text-align: center;
 }
 
-.main-contenedor {
-    margin-top: -100px;
-}
+
 
   /* Enlace activo (página actual) */
   .nav-link.active {
