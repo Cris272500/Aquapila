@@ -117,3 +117,9 @@ h3 {
         y: 250; /* Regresa a la posición inicial */
     }
 }
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+}
