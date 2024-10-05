@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const barra = document.querySelector(".progress-bar");
     const texto = document.querySelector(".capacity-text");
+    let cantidad_notificaciones = 0;
+
 
     texto.textContent = `Aquapila está al ${barra.getAttribute("aria-valuenow", 40)}% de su capacidad`;
 
@@ -41,9 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const formLiberar = document.querySelector("#register-form");
     const btnLiberar = document.querySelector(".btnLiberar");
 
-    
+    const lista_notificaciones = document.querySelector(".lista_not");
+
     
     btnLiberar.addEventListener("click", () => {
+
         event.preventDefault();
 
         const progressBar = document.querySelector(".progress-bar");
@@ -62,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         //alert("Continuaste chele")
     
-        
+        const notification = document.querySelector(".notification"); // esto es un span
 
         Swal.fire({
             title: "¿Estás seguro de liberar agua?",
@@ -77,6 +81,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (currentCapacity > 0) {
                     currentCapacity -= 10;
+                }
+
+                // mandamos una notificacion si la persona llega a una cantidad baja de agua
+                if (currentCapacity >= 10 && currentCapacity <= 30) {
+                    notification.textContent = '';
+                    notification.classList.add("notification-count");
+                    cantidad_notificaciones += 1;
+
+                    // vamos llenando el ul
+                    const nueva_notificacion = document.createElement("li");
+                    const nuevoEnlace = document.createElement("a");
+
+                    nuevoEnlace.textContent = `Notificación ${cantidad_notificaciones}`;
+                    nuevoEnlace.href = "#";
+
+                    nueva_notificacion.appendChild(nuevoEnlace);
+
+                    lista_notificaciones.appendChild(nueva_notificacion);
+
+                    notification.textContent = cantidad_notificaciones;
+
+                    // le sumamos dos notificaciones
                 }
     
                 // actualizamos los valores
