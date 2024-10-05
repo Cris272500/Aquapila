@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+    // aca cuando se carga la pagina el valor por defecto que va a tener es del de 70 por ciento
+
+    const barra = document.querySelector(".progress-bar");
+    const texto = document.querySelector(".capacity-text");
+
+    texto.textContent = `Aquapila está al ${barra.getAttribute("aria-valuenow", 40)}% de su capacidad`;
+
     const navLinks = document.querySelectorAll(".nav-link");
 
     navLinks.forEach(link => {
@@ -33,8 +41,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const formLiberar = document.querySelector("#register-form");
     const btnLiberar = document.querySelector(".btnLiberar");
 
+    
+    
     btnLiberar.addEventListener("click", () => {
         event.preventDefault();
+
+        const progressBar = document.querySelector(".progress-bar");
+        const capacityText = document.querySelector(".capacity-text");
+    
+        let currentCapacity = parseInt(progressBar.getAttribute("aria-valuenow"));
+
+        if (currentCapacity === 0) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "No tienes agua!",
+            });
+            return;
+        }
+        
+        //alert("Continuaste chele")
+    
+        
 
         Swal.fire({
             title: "¿Estás seguro de liberar agua?",
@@ -45,8 +73,18 @@ document.addEventListener("DOMContentLoaded", () => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
               Swal.fire("Agua liberada del tanque", "", "success").then(() => {
-                window.location.href = 'index.html';
-              });
+                // Disminuir el valor en 10
+
+                if (currentCapacity > 0) {
+                    currentCapacity -= 10;
+                }
+    
+                // actualizamos los valores
+
+                progressBar.style.width = `${currentCapacity}%`;
+                progressBar.setAttribute("aria-valuenow", currentCapacity);
+                capacityText.textContent = `Aquapila está al ${currentCapacity}% de su capacidad`;
+                });
             } else if (result.isDenied) {
               Swal.fire("Liberación de agua interrumpida", "", "error");
             }
