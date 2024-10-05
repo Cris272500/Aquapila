@@ -100,18 +100,65 @@ h3 {
     animation: fill 4s linear infinite;
 }
 
-/* Animación de llenado */
-@keyframes fill {
-    0% {
-        height: 0; /* Comienza vacío */
-        y: 250; /* Posición inicial del agua */
-    }
-    50% {
-        height: 200; /* Llenar hasta la mitad */
-        y: 150; /* Posición del agua al llenarse */
-    }
-    100% {
-        height: 0; /* Vaciar la botella */
-        y: 250; /* Regresa a la posición inicial */
-    }
+
+.main-contenedor {
+  display: flex; /* Usar flexbox para alinear horizontalmente */
 }
+
+.bottle-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.tarjeta-container {
+  display: flex;
+  flex-direction: column; /* Mantener las tarjetas en una columna */
+  padding-left: 20px; /* Espacio entre la botella y las tarjetas */
+}
+
+
+.tarjeta {
+  width: 100%; /* Ajustar el ancho a 100% para llenar el contenedor */
+  margin-bottom: 10px; /* Margen vertical entre tarjetas */
+  box-sizing: border-box;
+  height: 150px; /* Ajustar la altura */
+  overflow: hidden; /* Evitar desbordamientos */
+}
+
+.doble-columna {
+  height: 200px; /* Ajustar altura si es necesario */
+}
+
+.card-img-holder {
+  position: relative;
+  border-radius: 8px;
+  height: 100%; /* Asegurarse de que se ajuste a la tarjeta */
+}
+
+.card-body {
+  padding: 10px; /* Reducir el padding para más espacio */
+  height: 100%; /* Asegurarse de que ocupe toda la tarjeta */
+  display: flex;
+  flex-direction: column; /* Alinear los elementos verticalmente */
+  justify-content: center; /* Centrar contenido verticalmente */
+  position: relative; /* Para posicionar la imagen */
+  z-index: 1; /* Asegurarse de que el texto esté por encima */
+}
+
+.card-img-absolute {
+  position: absolute; /* Posicionar la imagen de manera absoluta */
+  top: 0; /* Ajustar según sea necesario */
+  left: 0; /* Ajustar según sea necesario */
+  width: 100%; /* Ajustar el tamaño de la imagen */
+  height: auto; /* Mantener la proporción */
+  z-index: 0; /* Colocar detrás del texto */
+}
+
+.card-text {
+  font-size: 14px;
+  color: #666;
+  margin-top: auto; /* Mover el texto al final */
+}
+
+
